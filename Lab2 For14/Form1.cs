@@ -26,17 +26,39 @@ namespace Lab2_For14
         {
             string[] strMass = strTextBox.Text.Split(" ");
             int[] numbers = new int[strMass.Length];
-            int n;
-            for (int i = 0; i < numbers.Length; i++)
+            int n = 0;
+            bool excTrigger = false;
+
+            //Переводим массив строк в массив чисел
+            try
             {
-                numbers[i] = int.Parse(strMass[i]);
+                for (int i = 0; i < numbers.Length; i++)
+                {
+                    numbers[i] = int.Parse(strMass[i]);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка при конвертации строки в числа.", "Ахтунг!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                excTrigger = true;
             }
 
-            n = int.Parse(nTextBox.Text);
+            //Переводим n текстовое в n числовое
+            try
+            {
+                n = int.Parse(nTextBox.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка при конвертации строки n в число.", "Ахтунг!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                excTrigger = true;
+            }
 
             //Вызов логики
-            MessageBox.Show(Logic.Execution(numbers, n));
-            
+            if (!excTrigger)
+            {
+                MessageBox.Show(Logic.Execution(numbers, n));
+            }
         }
     }
 
