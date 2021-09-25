@@ -15,6 +15,10 @@ namespace Lab2_For14
         public Form1()
         {
             InitializeComponent();
+
+            //Восстанавливаем последние введённые данные
+            strTextBox.Text = Properties.Settings.Default.strTextBox.ToString();
+            nTextBox.Text = Properties.Settings.Default.nTextBox.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -28,6 +32,11 @@ namespace Lab2_For14
             int[] numbers = new int[strMass.Length];
             int n = 0;
             bool excTrigger = false;
+
+            //Сохраняем последние введённые данные
+            Properties.Settings.Default.strTextBox = strTextBox.Text;
+            Properties.Settings.Default.nTextBox = nTextBox.Text;
+            Properties.Settings.Default.Save();
 
             //Переводим массив строк в массив чисел
             try
@@ -57,7 +66,7 @@ namespace Lab2_For14
             //Вызов логики
             if (!excTrigger)
             {
-                MessageBox.Show(Logic.Execution(numbers, n));
+                MessageBox.Show(Logic.Execution(numbers, n), "Решение");
             }
         }
     }
