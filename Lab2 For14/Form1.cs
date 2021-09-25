@@ -24,7 +24,57 @@ namespace Lab2_For14
 
         private void button2_Click(object sender, EventArgs e)
         {
+            string[] strMass = strTextBox.Text.Split(" ");
+            int[] numbers = new int[strMass.Length];
+            int n;
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                numbers[i] = int.Parse(strMass[i]);
+            }
 
+            n = int.Parse(nTextBox.Text);
+
+            //Вызов логики
+            MessageBox.Show(Logic.Execution(numbers, n));
+            
+        }
+    }
+
+    public static class Logic
+    {
+        //Основная логика
+        public static string Execution(int[] numbers, int n)
+        {
+            bool trigger = false;
+            int counter = 0, i = 0;
+            string outMessage = "";
+            while ((trigger != true) && (i < numbers.Length-1))
+            {
+                if (numbers[i] == numbers[i + 1])
+                {
+                    counter += 1;
+                    if (counter == n - 1)
+                    {
+                        trigger = true;
+                        outMessage = "Номера первой найденной " + n + "-ки: ";
+                        for (int j = (i + 1) - (n - 1); j <= i + 1; j++)
+                        {
+                            outMessage += j + " ";
+                        }
+                    }
+                }
+                else
+                {
+                    counter = 0;
+                }
+                i++;
+            }
+            if (!trigger)
+            {
+                outMessage = "Пары не найдены";
+            }
+
+            return outMessage;
         }
     }
 }
