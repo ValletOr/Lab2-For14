@@ -71,6 +71,23 @@ namespace Lab2_For14
                 nTextBox.Text = "";
             }
         }
+
+        private void strTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar ==(char)Keys.Enter)
+            {
+                nTextBox.Focus();
+            }
+        }
+
+        private void nTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                button2.PerformClick();
+                strTextBox.Focus();
+            }
+        }
     }
 
     public static class Logic

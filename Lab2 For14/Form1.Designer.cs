@@ -45,6 +45,7 @@ namespace Lab2_For14
             this.strTextBox.Name = "strTextBox";
             this.strTextBox.Size = new System.Drawing.Size(582, 27);
             this.strTextBox.TabIndex = 2;
+            this.strTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.strTextBox_KeyPress);
             // 
             // button1
             // 
@@ -81,6 +82,7 @@ namespace Lab2_For14
             this.nTextBox.Name = "nTextBox";
             this.nTextBox.Size = new System.Drawing.Size(582, 27);
             this.nTextBox.TabIndex = 5;
+            this.nTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nTextBox_KeyPress);
             // 
             // button2
             // 
