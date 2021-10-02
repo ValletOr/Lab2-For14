@@ -28,7 +28,7 @@ namespace Lab2_For14
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string[] strMass = strTextBox.Text.Split(" ");
+            string[] strMass = strTextBox.Text.Split(" ", StringSplitOptions.RemoveEmptyEntries);
             int[] numbers = new int[strMass.Length];
             int n = 0;
             bool excTrigger = false;
@@ -66,7 +66,9 @@ namespace Lab2_For14
             //Вызов логики
             if (!excTrigger)
             {
-                MessageBox.Show(Logic.Execution(numbers, n), "Решение");
+                resultTextBox.Text = Logic.Execution(numbers, n);
+                strTextBox.Text = "";
+                nTextBox.Text = "";
             }
         }
     }
