@@ -109,7 +109,7 @@ namespace Lab2_For14
                         outMessage = "Номера первой найденной " + n + "-ки: ";
                         for (int j = (i + 1) - (n - 1); j <= i + 1; j++)
                         {
-                            outMessage += j + " ";
+                            outMessage += j+1 + " ";
                         }
                     }
                 }
